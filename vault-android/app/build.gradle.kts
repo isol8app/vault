@@ -17,7 +17,7 @@ android {
         minSdk = 29 // Android 10: spare phones are often old
         targetSdk = 36 // Android 16
         versionCode = 1
-        versionName = "0.1.0-dev"
+        versionName = "1.0.0"
     }
 
     buildTypes {

@@ -350,6 +350,8 @@ class MainActivity : Activity() {
             ui.body("You'll get $wordCount words: your recovery phrase. Write them on paper, in order."),
             ui.body("Anyone with these words controls everything in the vault. They're also the only way to recover it if this device is lost or reset."),
             ui.error("Never photograph them, type them into another device, or store them online."),
+            ui.note("Your coins live on Solana, not in this app. These words are what reach them, here or in any standard Solana wallet."),
+            if (PUBLIC_BETA) ui.warning(BETA_NOTE) else null,
             ui.button("Show my $wordCount words") {
                 if (!gate()) return@button
                 // 12 words: 128 bits of entropy; 24 words: 256 (BIP39).
@@ -432,6 +434,7 @@ class MainActivity : Activity() {
         listOf(
             ui.title(if (secrets.checking) "Check my backup" else "Restore from a recovery phrase"),
             ui.body(if (secrets.checking) "How many words are on your paper?" else "How many words does your phrase have?"),
+            if (PUBLIC_BETA && !secrets.checking) ui.warning(BETA_NOTE) else null,
             ui.grid(3, listOf(12, 15, 18, 21, 24).map { n ->
                 ui.button("$n words") {
                     if (!gate()) return@button
@@ -587,6 +590,7 @@ class MainActivity : Activity() {
             ui.title("Check my backup"),
             ui.body("Type the words from your paper. The vault tells you whether they match it: it never shows its own words, and never says which word is wrong."),
             ui.note("You'll need your passphrase at the end."),
+            ui.note("Your coins live on Solana, not in this app: your recovery phrase is what reaches them. That's why the paper has to be right."),
             ui.button("Start") {
                 if (!gate()) return@button
                 secrets.checking = true
@@ -1468,8 +1472,11 @@ class MainActivity : Activity() {
         const val OFFICIAL_ORIGIN = "isol8.app"
         /** At or above this slippage (15%), signing a swap needs a deliberate tick first. */
         const val EXTREME_SLIPPAGE_BPS = 1_500
-        const val APP_VERSION_MAJOR = 0
-        const val APP_VERSION_MINOR = 1
+        const val APP_VERSION_MAJOR = 1
+        const val APP_VERSION_MINOR = 0
+        /** Until the vault is independently audited (the site's PUBLIC_BETA says the same). */
+        const val PUBLIC_BETA = true
+        const val BETA_NOTE = "isol8 is in public beta and hasn't been independently audited yet. Start with an amount you could afford to lose."
         val EXPECTED_PERMISSIONS = setOf(Manifest.permission.CAMERA)
         /** Anything that could reach a network or another device. The build already refuses them (app/build.gradle.kts). */
         val NETWORK_PERMISSIONS = setOf(
