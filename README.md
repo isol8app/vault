@@ -4,6 +4,8 @@
 
 **Public beta, not yet independently audited.** Keep only amounts you could afford to lose in a vault until it is.
 
+The repository is licensed under the GNU GPL v3 ([LICENSE](LICENSE)), except `protocol/` and `docs/`, which are Apache-2.0:
+
 | Path | What | Licence |
 |---|---|---|
 | [`vault-android/`](vault-android/) | The vault app (Kotlin, Android 10+) and its reproducible release process | [GPL-3.0](vault-android/LICENSE) |
