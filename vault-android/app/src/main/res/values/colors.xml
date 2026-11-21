@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The vault's background (Ui.kt Palette.BG): launch, splash and icon all start from it. -->
+    <color name="vault_bg">#FF06080D</color>
+    <color name="vault_accent_text">#FFB4BFFF</color>
+</resources>

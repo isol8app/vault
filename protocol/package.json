@@ -1,0 +1,16 @@
+{
+  "name": "@isol8/protocol",
+  "version": "0.1.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "description": "Reference implementation and test vectors for the isol8 QR protocol (docs/PROTOCOL.md)",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.ts",
+    "vectors": "node scripts/gen-vectors.ts",
+    "crosscheck": "node scripts/crosscheck-kit.ts"
+  }
+}

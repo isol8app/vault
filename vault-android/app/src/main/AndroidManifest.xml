@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The isol8 vault requests one permission: CAMERA, to scan QR codes. It never requests INTERNET,
+  so Android blocks it from opening any network connection. app/build.gradle.kts fails the build
+  if the merged manifest ever requests a permission outside its allowlist.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- Any camera works, front or back; autofocus helps but isn't required. -->
+    <uses-feature android:name="android.hardware.camera.any" android:required="true" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+
+    <!-- The device report checks whether GrapheneOS's own app store is installed (package visibility, no permission). -->
+    <queries>
+        <package android:name="app.grapheneos.apps" />
+    </queries>
+
+    <application
+        android:allowBackup="false"
+        android:fullBackupContent="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Vault">
+
+        <!--
+          configChanges: turning the device (or folding it, or a keyboard appearing) re-lays out the current screen
+          instead of recreating the activity. Recreating stops it first, and stopping locks the vault and goes home,
+          so tilting the tablet mid-scan threw away an address book entry in progress. Leaving the app or turning
+          off the screen still locks it (onStop).
+        -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="unspecified"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize|keyboard|keyboardHidden|navigation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

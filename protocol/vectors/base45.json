@@ -1,0 +1,80 @@
+{
+  "valid": [
+    {
+      "bytes_hex": "",
+      "text": ""
+    },
+    {
+      "bytes_hex": "00",
+      "text": "00"
+    },
+    {
+      "bytes_hex": "ff",
+      "text": "U5"
+    },
+    {
+      "bytes_hex": "0000",
+      "text": "000"
+    },
+    {
+      "bytes_hex": "ffff",
+      "text": "FGW"
+    },
+    {
+      "bytes_hex": "4142",
+      "text": "BB8"
+    },
+    {
+      "bytes_hex": "48656c6c6f2121",
+      "text": "%69 VD92EX0"
+    },
+    {
+      "bytes_hex": "626173652d3435",
+      "text": "UJCLQE7W581"
+    },
+    {
+      "bytes_hex": "6965746621",
+      "text": "QED8WEX0"
+    },
+    {
+      "bytes_hex": "9489d179b6475ddbeaaa515d2d5fe729076d8647375b24439626265564a8d606",
+      "text": "0ZIULQ/1N.%B:TT*CA5X52ATB.0+/G-:6DQ48:I3%4SWCP2R"
+    },
+    {
+      "bytes_hex": "96471636b9c3627fac37f895cdaa250613b14a0009afb8896a16b1fe7fb0231a42",
+      "text": "-:IG 2ZLNFKCWYL7JV00QSU41M2:F94A1 ENNIDQMMI6GVJ4L1"
+    }
+  ],
+  "invalid": [
+    {
+      "text": "A",
+      "error": "BAD_BASE45",
+      "why": "length mod 3 is 1"
+    },
+    {
+      "text": "ABCD",
+      "error": "BAD_BASE45",
+      "why": "length mod 3 is 1"
+    },
+    {
+      "text": "aBC",
+      "error": "BAD_BASE45",
+      "why": "lowercase is outside the alphabet"
+    },
+    {
+      "text": "GGW",
+      "error": "BAD_BASE45",
+      "why": "triple value 65536 exceeds 65535 (RFC 9285 example)"
+    },
+    {
+      "text": ":::",
+      "error": "BAD_BASE45",
+      "why": "triple value 91124 exceeds 65535"
+    },
+    {
+      "text": "::",
+      "error": "BAD_BASE45",
+      "why": "pair value 2024 exceeds 255"
+    }
+  ]
+}

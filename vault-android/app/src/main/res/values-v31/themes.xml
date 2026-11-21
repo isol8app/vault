@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Android 12+ always shows a launch splash: the eight on the vault's own background, then straight to Home. -->
+    <style name="Vault" parent="@android:style/Theme.DeviceDefault.NoActionBar">
+        <item name="android:windowBackground">@color/vault_bg</item>
+        <item name="android:statusBarColor">@color/vault_bg</item>
+        <item name="android:navigationBarColor">@color/vault_bg</item>
+        <item name="android:windowSplashScreenBackground">@color/vault_bg</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+    </style>
+</resources>

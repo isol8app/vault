@@ -1,0 +1,32 @@
+{
+  "warning": "TEST KEYS ONLY. These seeds are public; never use them for real funds.",
+  "spec": "docs/PROTOCOL.md draft v0.1",
+  "vault_seed_hex": "1da83f302097542079cdccefef630f26fe8057eaefe644c7636b84d27e2d78de",
+  "vault_pubkey_hex": "2fbb6899c78da0e64481e967c1ffc8f34533b2c3422392bc1f1eff2357e40f05",
+  "vault_address": "4DKubqYmFiXNbWDWMersXVVoynoHpvtuXAunLSrBc1ek",
+  "other_seed_hex": "a0ba35dfbb1084a5555a3b4737f6fcb7482d7afa4bc25865d312ac7e1a343d8f",
+  "other_address": "HVmg11y3Sm6N1aMyCK54Q2mWZCggP4WrVPqgnFvRjuHL",
+  "recipient_address": "4514nRYcbFMiHP3zcJphMCqpceps8uGV3geRqn6Pas5i",
+  "mint_address": "18ZyKbejgVyuXZ7NSdvDqZK2unJQeHd8V5uJxrWhWv2",
+  "token_2022_mint_address": "8GwEmjbAWVjac7AjLBLDHAC45xzcaSGrzLvA63UMQ4E",
+  "nonce_account": {
+    "address": "3Jfe2t4hgt3EUGfZRzunAyP7FBzqieRNB2JiWeiVoZuG",
+    "seed": "isol8-nonce-0",
+    "base": "4DKubqYmFiXNbWDWMersXVVoynoHpvtuXAunLSrBc1ek",
+    "owner": "11111111111111111111111111111111"
+  },
+  "nonce_value_hex": "a15f5abc78d4b0e685b05f00e6a80b9fdddefb5968d4c245a7308d1518bee84a",
+  "recent_blockhash_hex": "728c2a97346fab9d22c4dd3594dd1220c84a1fdd21030dec6693a743fd93318f",
+  "vault_state": {
+    "held_signers": [
+      "4DKubqYmFiXNbWDWMersXVVoynoHpvtuXAunLSrBc1ek"
+    ],
+    "address_book": [
+      {
+        "label": "Desk wallet",
+        "address": "icrGKa8xXzoqyADEbTQTzehtbXasoNDnvA5eetr6Q5C"
+      }
+    ],
+    "high_fee_threshold_lamports": "10000000"
+  }
+}

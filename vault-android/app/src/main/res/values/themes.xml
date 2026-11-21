@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark from the first frame: no light flash before the vault's own screens draw. -->
+    <style name="Vault" parent="@android:style/Theme.DeviceDefault.NoActionBar">
+        <item name="android:windowBackground">@color/vault_bg</item>
+        <item name="android:statusBarColor">@color/vault_bg</item>
+        <item name="android:navigationBarColor">@color/vault_bg</item>
+    </style>
+</resources>

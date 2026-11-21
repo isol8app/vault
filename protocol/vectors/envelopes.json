@@ -1,0 +1,119 @@
+{
+  "warning": "TEST VALUES ONLY. These passphrases and entropies are public.",
+  "format": "vault-android/crypto/src/main/kotlin/app/isol8/vault/crypto/VaultEnvelope.kt",
+  "valid": [
+    {
+      "name": "production_params_24_words",
+      "entropy_hex": "cd7d12ec474881f8b65a0c24f008978c4b8147d66edecd15ff308081eee997a9",
+      "bip39_passphrase": "",
+      "passphrase": "correct horse battery staple",
+      "params": {
+        "memoryKiB": 65536,
+        "iterations": 3,
+        "parallelism": 1
+      },
+      "bounds": "production",
+      "salt_hex": "7e1d15a55fb63c9a78a2463b75c7aa75",
+      "nonce_hex": "71d9d81835d7603e7e1612d2",
+      "envelope_hex": "4938505601010000010003000000017e1d15a55fb63c9a78a2463b75c7aa7571d9d81835d7603e7e1612d255c729ecb1dcfde6db1556cac99ec063f2da88f9e6f7e67180e1d7d250e4e0890f6bc8f070046ffd9e5b70af78feaa02a344e5c8a0"
+    },
+    {
+      "name": "unicode_passphrase_with_bip39_passphrase",
+      "entropy_hex": "281aaaf162243537abde9c5211b4b7eb",
+      "bip39_passphrase": "TREZOR",
+      "passphrase": "Pässwörd ﬁ 金庫",
+      "params": {
+        "memoryKiB": 1024,
+        "iterations": 2,
+        "parallelism": 1
+      },
+      "bounds": "test",
+      "salt_hex": "e9551a8185d352401352e0ff068714e4",
+      "nonce_hex": "a7d13252489370ee6a9093d4",
+      "envelope_hex": "493850560101000400000200000001e9551a8185d352401352e0ff068714e4a7d13252489370ee6a9093d42c397df97efdb92fd76061de647af9efe6b2eff5a75ff3026a36f3fe0f9096fbb9e6ca85d5868189df75f1"
+    },
+    {
+      "name": "two_lanes_18_words",
+      "entropy_hex": "9e86139053b7a7c544fd89ca3b5ac4415f824ee992ed35f3",
+      "bip39_passphrase": "",
+      "passphrase": "abcdefgh",
+      "params": {
+        "memoryKiB": 2048,
+        "iterations": 1,
+        "parallelism": 2
+      },
+      "bounds": "test",
+      "salt_hex": "ed6f7aa421dfc300a2a25dfb92e7ed11",
+      "nonce_hex": "6bef1293d46f70196a0cb073",
+      "envelope_hex": "493850560101000800000100000002ed6f7aa421dfc300a2a25dfb92e7ed116bef1293d46f70196a0cb073b2da35bc0cdae26529cc558451f86f926d08995372c5ea54e2215e74feaa429303d5b97ef208c6b679bc345cec"
+    }
+  ],
+  "invalid": [
+    {
+      "name": "wrong_passphrase",
+      "envelope_hex": "4938505601010000010003000000017e1d15a55fb63c9a78a2463b75c7aa7571d9d81835d7603e7e1612d255c729ecb1dcfde6db1556cac99ec063f2da88f9e6f7e67180e1d7d250e4e0890f6bc8f070046ffd9e5b70af78feaa02a344e5c8a0",
+      "passphrase": "correct horse battery stapler",
+      "error": "WRONG_PASSPHRASE_OR_TAMPERED"
+    },
+    {
+      "name": "bad_magic",
+      "envelope_hex": "5838505601010000010003000000017e1d15a55fb63c9a78a2463b75c7aa7571d9d81835d7603e7e1612d255c729ecb1dcfde6db1556cac99ec063f2da88f9e6f7e67180e1d7d250e4e0890f6bc8f070046ffd9e5b70af78feaa02a344e5c8a0",
+      "passphrase": "correct horse battery staple",
+      "error": "MALFORMED"
+    },
+    {
+      "name": "newer_version",
+      "envelope_hex": "4938505602010000010003000000017e1d15a55fb63c9a78a2463b75c7aa7571d9d81835d7603e7e1612d255c729ecb1dcfde6db1556cac99ec063f2da88f9e6f7e67180e1d7d250e4e0890f6bc8f070046ffd9e5b70af78feaa02a344e5c8a0",
+      "passphrase": "correct horse battery staple",
+      "error": "UNSUPPORTED_VERSION"
+    },
+    {
+      "name": "unknown_kdf",
+      "envelope_hex": "4938505601020000010003000000017e1d15a55fb63c9a78a2463b75c7aa7571d9d81835d7603e7e1612d255c729ecb1dcfde6db1556cac99ec063f2da88f9e6f7e67180e1d7d250e4e0890f6bc8f070046ffd9e5b70af78feaa02a344e5c8a0",
+      "passphrase": "correct horse battery staple",
+      "error": "UNSUPPORTED_VERSION"
+    },
+    {
+      "name": "memory_below_minimum",
+      "envelope_hex": "4938505601010020000003000000017e1d15a55fb63c9a78a2463b75c7aa7571d9d81835d7603e7e1612d255c729ecb1dcfde6db1556cac99ec063f2da88f9e6f7e67180e1d7d250e4e0890f6bc8f070046ffd9e5b70af78feaa02a344e5c8a0",
+      "passphrase": "correct horse battery staple",
+      "error": "UNSAFE_PARAMETERS"
+    },
+    {
+      "name": "memory_absurd",
+      "envelope_hex": "493850560101ffffffff03000000017e1d15a55fb63c9a78a2463b75c7aa7571d9d81835d7603e7e1612d255c729ecb1dcfde6db1556cac99ec063f2da88f9e6f7e67180e1d7d250e4e0890f6bc8f070046ffd9e5b70af78feaa02a344e5c8a0",
+      "passphrase": "correct horse battery staple",
+      "error": "UNSAFE_PARAMETERS"
+    },
+    {
+      "name": "iterations_lowered_in_bounds",
+      "envelope_hex": "4938505601010000010002000000017e1d15a55fb63c9a78a2463b75c7aa7571d9d81835d7603e7e1612d255c729ecb1dcfde6db1556cac99ec063f2da88f9e6f7e67180e1d7d250e4e0890f6bc8f070046ffd9e5b70af78feaa02a344e5c8a0",
+      "passphrase": "correct horse battery staple",
+      "error": "WRONG_PASSPHRASE_OR_TAMPERED"
+    },
+    {
+      "name": "salt_changed",
+      "envelope_hex": "4938505601010000010003000000017e1d15a55fb73c9a78a2463b75c7aa7571d9d81835d7603e7e1612d255c729ecb1dcfde6db1556cac99ec063f2da88f9e6f7e67180e1d7d250e4e0890f6bc8f070046ffd9e5b70af78feaa02a344e5c8a0",
+      "passphrase": "correct horse battery staple",
+      "error": "WRONG_PASSPHRASE_OR_TAMPERED"
+    },
+    {
+      "name": "ciphertext_changed",
+      "envelope_hex": "4938505601010000010003000000017e1d15a55fb63c9a78a2463b75c7aa7571d9d81835d7603e7e1612d255c729ecb1dcfde7db1556cac99ec063f2da88f9e6f7e67180e1d7d250e4e0890f6bc8f070046ffd9e5b70af78feaa02a344e5c8a0",
+      "passphrase": "correct horse battery staple",
+      "error": "WRONG_PASSPHRASE_OR_TAMPERED"
+    },
+    {
+      "name": "tag_changed",
+      "envelope_hex": "4938505601010000010003000000017e1d15a55fb63c9a78a2463b75c7aa7571d9d81835d7603e7e1612d255c729ecb1dcfde6db1556cac99ec063f2da88f9e6f7e67180e1d7d250e4e0890f6bc8f070046ffd9e5b70af78feaa02a344e5c8a1",
+      "passphrase": "correct horse battery staple",
+      "error": "WRONG_PASSPHRASE_OR_TAMPERED"
+    },
+    {
+      "name": "truncated",
+      "envelope_hex": "4938505601010000010003000000017e1d15a55fb63c9a78a2463b75c7aa7571d9d81835d7603e7e1612d255c729ecb1dcfd",
+      "passphrase": "correct horse battery staple",
+      "error": "MALFORMED"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+# The protocol has no dependencies; @solana/kit is installed here only for npm run crosscheck.
+protocol/node_modules/
